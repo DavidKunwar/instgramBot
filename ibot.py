@@ -22,7 +22,7 @@ class insta_bot:
         time.sleep(1)
         self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]").click()      # NOT NOW
 
-    def send_text(self):
+    def send_text(self, targetID):
         time.sleep(1)
         self.driver.find_element_by_xpath("/html/body/div[1]/section/nav/div[2]/div/div/div[3]/div/div[5]/span/img").click()  # PROFILE
         time.sleep(1)
@@ -38,7 +38,7 @@ class insta_bot:
             ht = self.driver.execute_script("""arguments[0].
                     scrollTo(0, arguments[0].scrollHeight);
                     return arguments[0].scrollHeight;""", scroll_box)
-        self.driver.find_element_by_link_text("david_develops").click()
+        self.driver.find_element_by_link_text(targetID).click()
         time.sleep(2)
         self.driver.find_element_by_css_selector("button[class='sqdOP  L3NKy    _8A5w5    ']").click()   #MESSAGE BUTTON
         time.sleep(5)
@@ -54,6 +54,7 @@ class insta_bot:
             self.driver.find_element_by_css_selector("#react-root > section > div > div.Igw0E.IwRSH.eGOV_._4EzTm > div > div > div.DPiy6.Igw0E.IwRSH.eGOV_.vwCYk > div.uueGX > div > div.Igw0E.IwRSH.eGOV_._4EzTm > div > div > div.Igw0E.IwRSH.eGOV_._4EzTm.JI_ht > button").click()
         #self.driver.find_element_by_xpath("/html/body/div[1]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea").send_keys("ENTER")
 
+targetId = input('Enter receipient ID: ')
 
 mybot = insta_bot(username, password)
-mybot.send_text()
+mybot.send_text(targetId)
